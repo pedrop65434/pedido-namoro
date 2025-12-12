@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pedido de Namoro ❤️</title>
+
+<style>
+    body {
+        background: #ffdde1;
+        font-family: Arial, sans-serif;
+        text-align: center;
+        padding: 20px;
+    }
+
+    #container {
+        max-width: 600px;
+        margin: auto;
+        background: white;
+        padding: 25px;
+        border-radius: 20px;
+        box-shadow: 0 0 15px #ff9bb2;
+    }
+
+    h1 {
+        font-size: 28px;
+        color: #d81b60;
+    }
+
+    img {
+        width: 100%;
+        max-width: 320px;
+        border-radius: 20px;
+        margin-bottom: 20px;
+    }
+
+    .btn {
+        display: inline-block;
+        margin: 10px;
+        padding: 18px 30px;
+        font-size: 22px;
+        border: none;
+        border-radius: 15px;
+        cursor: pointer;
+        transition: 0.2s;
+    }
+
+    #yes {
+        background: #ff4f70;
+        color: white;
+    }
+
+    #no {
+        background: #bbbbbb;
+        color: black;
+        position: relative;
+    }
+
+    #final {
+        display: none;
+        margin-top: 25px;
+        font-size: 26px;
+        color: #d81b60;
+    }
+</style>
+</head>
+
+<body>
+
+<div id="container">
+
+    <h1 id="pergunta">Você aceita namorar comigo? ❤️</h1>
+
+    <img src="foto.jpg" alt="Foto fofinha">
+
+    <button id="yes" class="btn">SIM 💘</button>
+    <button id="no" class="btn">NÃO ❌</button>
+
+    <h1 id="final">EU SABIA QUE VOCÊ IA ACEITAR 😍❤️</h1>
+
+</div>
+
+<script>
+    // Perguntas extras em sequência
+    const perguntas = [
+        "Tem certeza mesmo? 😳",
+        "Pensa bem... eu sou ciumento 😏",
+        "Mas eu te trato bem 😍",
+        "E sou fiel 😎",
+        "Última chance... aceita namorar comigo? ❤️"
+    ];
+
+    let index = 0;
+
+    const pergunta = document.getElementById("pergunta");
+    const no = document.getElementById("no");
+    const yes = document.getElementById("yes");
+    const finalMsg = document.getElementById("final");
+
+    // Botão NÃO fugindo + mudando pergunta
+    no.addEventListener("click", function () {
+        // Mover botão pra posição aleatória
+        no.style.position = "absolute";
+        no.style.top = (Math.random() * 300 + 50) + "px";
+        no.style.left = (Math.random() * 200 + 50) + "px";
+
+        // Mudar pergunta para a próxima
+        if (index < perguntas.length) {
+            pergunta.textContent = perguntas[index];
+            index++;
+        }
+    });
+
+    // Botão SIM finaliza tudo
+    yes.addEventListener("click", function () {
+        pergunta.style.display = "none";
+        yes.style.display = "none";
+        no.style.display = "none";
+        finalMsg.style.display = "block";
+    });
+</script>
+
+</body>
+</html>
